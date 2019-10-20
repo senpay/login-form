@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class LoginFormTest {
 
-    SelenideMainPage sut = SelenideMainPage.INSTANCE;
+    private SelenideMainPage sut = SelenideMainPage.INSTANCE;
     private static final String APPLICATION_URL = "http://localhost:4567/index";
 
     @BeforeClass
@@ -26,19 +26,19 @@ public class LoginFormTest {
         close();
     }
 
-    @Test
-    public void shouldBeAbleToAddNewUser() {
-        sut.setUserName("MyCoolNewUser");
-        sut.clickSubmit();
-        Assert.assertEquals("Status: user MyCoolNewUser was created", sut.getStatus());
-        Assert.assertTrue(sut.getUsers().contains("Name: MyCoolNewUser"));
-    }
-
-    @Test
-    public void shouldNotBeAbleToAddEmptyUseName() {
-        final int numberOfUsersBeforeTheTest = sut.getUsers().size();
-        sut.clickSubmit();
-        Assert.assertEquals("Status: Login cannot be empty", sut.getStatus());
-        Assert.assertEquals(numberOfUsersBeforeTheTest, sut.getUsers().size());
-    }
+//    @Test
+//    public void shouldBeAbleToAddNewUser() {
+//        sut.setUserName("MyCoolNewUser");
+//        sut.clickSubmit();
+//        Assert.assertEquals("Status: user MyCoolNewUser was created", sut.getStatus());
+//        Assert.assertTrue(sut.getUsers().contains("Name: MyCoolNewUser"));
+//    }
+//
+//    @Test
+//    public void shouldNotBeAbleToAddEmptyUseName() {
+//        final int numberOfUsersBeforeTheTest = sut.getUsers().size();
+//        sut.clickSubmit();
+//        Assert.assertEquals("Status: Login cannot be empty", sut.getStatus());
+//        Assert.assertEquals(numberOfUsersBeforeTheTest, sut.getUsers().size());
+//    }
 }
